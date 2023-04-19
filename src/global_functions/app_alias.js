@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -75,53 +52,49 @@ var path_1 = __importDefault(require("path"));
     var _d, e_1, _e, _f;
     var _g;
     return __generator(this, function (_h) {
-        var _j;
         switch (_h.label) {
             case 0: return [4 /*yield*/, config("app.alias")];
             case 1:
                 alias = _h.sent();
                 _h.label = 2;
             case 2:
-                _h.trys.push([2, 10, 11, 16]);
+                _h.trys.push([2, 7, 8, 13]);
                 _a = true, _b = __asyncValues(Object.getOwnPropertyNames(alias));
                 _h.label = 3;
             case 3: return [4 /*yield*/, _b.next()];
             case 4:
-                if (!(_c = _h.sent(), _d = _c.done, !_d)) return [3 /*break*/, 9];
+                if (!(_c = _h.sent(), _d = _c.done, !_d)) return [3 /*break*/, 6];
                 _f = _c.value;
                 _a = false;
+                try {
+                    a = _f;
+                    p = require("".concat(path_1.default.dirname((_g = require.main) === null || _g === void 0 ? void 0 : _g.filename), "/").concat(alias[a])).default;
+                    c = new p();
+                    globalThis[a] = c;
+                }
+                finally {
+                    _a = true;
+                }
                 _h.label = 5;
-            case 5:
-                _h.trys.push([5, , 7, 8]);
-                a = _f;
-                return [4 /*yield*/, (_j = "".concat(path_1.default.dirname((_g = require.main) === null || _g === void 0 ? void 0 : _g.filename), "/").concat(alias[a]), Promise.resolve().then(function () { return __importStar(require(_j)); }))];
-            case 6:
-                p = (_h.sent()).default;
-                c = new p();
-                globalThis[a] = c;
-                return [3 /*break*/, 8];
+            case 5: return [3 /*break*/, 3];
+            case 6: return [3 /*break*/, 13];
             case 7:
-                _a = true;
-                return [7 /*endfinally*/];
-            case 8: return [3 /*break*/, 3];
-            case 9: return [3 /*break*/, 16];
-            case 10:
                 e_1_1 = _h.sent();
                 e_1 = { error: e_1_1 };
-                return [3 /*break*/, 16];
-            case 11:
-                _h.trys.push([11, , 14, 15]);
-                if (!(!_a && !_d && (_e = _b.return))) return [3 /*break*/, 13];
+                return [3 /*break*/, 13];
+            case 8:
+                _h.trys.push([8, , 11, 12]);
+                if (!(!_a && !_d && (_e = _b.return))) return [3 /*break*/, 10];
                 return [4 /*yield*/, _e.call(_b)];
-            case 12:
+            case 9:
                 _h.sent();
-                _h.label = 13;
-            case 13: return [3 /*break*/, 15];
-            case 14:
+                _h.label = 10;
+            case 10: return [3 /*break*/, 12];
+            case 11:
                 if (e_1) throw e_1.error;
                 return [7 /*endfinally*/];
-            case 15: return [7 /*endfinally*/];
-            case 16: return [2 /*return*/];
+            case 12: return [7 /*endfinally*/];
+            case 13: return [2 /*return*/];
         }
     });
 }); })();

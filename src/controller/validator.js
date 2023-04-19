@@ -56,7 +56,7 @@ var __asyncValues = (this && this.__asyncValues) || function (o) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_validator_1 = require("express-validator");
 var mimesTypes_1 = require("./mimesTypes");
-var validation = require("../../resources/views/lang/validation").default;
+var validation = require("".concat(process.cwd(), "/resources/views/lang/validation")).default;
 var Validator = /** @class */ (function () {
     function Validator() {
     }

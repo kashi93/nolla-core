@@ -3,7 +3,7 @@ import { Request, Rule } from "../nolla-core";
 import { mimesTypes } from "./mimesTypes";
 const {
   default: validation,
-} = require("../../resources/views/lang/validation");
+} = require(`${process.cwd()}/resources/views/lang/validation`);
 
 export default class Validator {
   async validate(

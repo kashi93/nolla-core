@@ -9,4 +9,4 @@ class ViewDefaultService {
   }
 }
 
-module.exports = ViewDefaultService;
+export default ViewDefaultService;

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var AppDefaultService = /** @class */ (function () {
     function AppDefaultService() {
     }
@@ -8,4 +9,4 @@ var AppDefaultService = /** @class */ (function () {
     };
     return AppDefaultService;
 }());
-module.exports = AppDefaultService;
+exports.default = AppDefaultService;

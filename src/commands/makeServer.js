@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -82,7 +59,6 @@ exports.default = yargs_1.default.command({
         return __awaiter(this, void 0, void 0, function () {
             var app, host, port, app_name, _d, _e, _f, prov, p, c, e_1_1, routerReg;
             return __generator(this, function (_g) {
-                var _h;
                 switch (_g.label) {
                     case 0:
                         app = (0, express_1.default)();
@@ -98,7 +74,7 @@ exports.default = yargs_1.default.command({
                         app.use(express_1.default.static("".concat(process.cwd(), "/public")));
                         _g.label = 4;
                     case 4:
-                        _g.trys.push([4, 13, 14, 19]);
+                        _g.trys.push([4, 10, 11, 16]);
                         _d = true;
                         return [4 /*yield*/, config("app.providers")];
                     case 5:
@@ -106,47 +82,44 @@ exports.default = yargs_1.default.command({
                         _g.label = 6;
                     case 6: return [4 /*yield*/, _e.next()];
                     case 7:
-                        if (!(_f = _g.sent(), _a = _f.done, !_a)) return [3 /*break*/, 12];
+                        if (!(_f = _g.sent(), _a = _f.done, !_a)) return [3 /*break*/, 9];
                         _c = _f.value;
                         _d = false;
+                        try {
+                            prov = _c;
+                            p = require(prov).default;
+                            c = new p();
+                            c.boot(app);
+                        }
+                        finally {
+                            _d = true;
+                        }
                         _g.label = 8;
-                    case 8:
-                        _g.trys.push([8, , 10, 11]);
-                        prov = _c;
-                        return [4 /*yield*/, (_h = "".concat(process.cwd(), "/").concat(prov), Promise.resolve().then(function () { return __importStar(require(_h)); }))];
-                    case 9:
-                        p = (_g.sent()).default;
-                        c = new p();
-                        c.boot(app);
-                        return [3 /*break*/, 11];
+                    case 8: return [3 /*break*/, 6];
+                    case 9: return [3 /*break*/, 16];
                     case 10:
-                        _d = true;
-                        return [7 /*endfinally*/];
-                    case 11: return [3 /*break*/, 6];
-                    case 12: return [3 /*break*/, 19];
-                    case 13:
                         e_1_1 = _g.sent();
                         e_1 = { error: e_1_1 };
-                        return [3 /*break*/, 19];
-                    case 14:
-                        _g.trys.push([14, , 17, 18]);
-                        if (!(!_d && !_a && (_b = _e.return))) return [3 /*break*/, 16];
+                        return [3 /*break*/, 16];
+                    case 11:
+                        _g.trys.push([11, , 14, 15]);
+                        if (!(!_d && !_a && (_b = _e.return))) return [3 /*break*/, 13];
                         return [4 /*yield*/, _b.call(_e)];
-                    case 15:
+                    case 12:
                         _g.sent();
-                        _g.label = 16;
-                    case 16: return [3 /*break*/, 18];
-                    case 17:
+                        _g.label = 13;
+                    case 13: return [3 /*break*/, 15];
+                    case 14:
                         if (e_1) throw e_1.error;
                         return [7 /*endfinally*/];
-                    case 18: return [7 /*endfinally*/];
-                    case 19:
+                    case 15: return [7 /*endfinally*/];
+                    case 16:
                         routerReg = new routeRegister_1.default();
                         return [4 /*yield*/, routerReg.register()];
-                    case 20:
+                    case 17:
                         _g.sent();
                         return [4 /*yield*/, routerReg.initialize(app)];
-                    case 21:
+                    case 18:
                         _g.sent();
                         app.use(function (err, req, res, next) {
                             try {

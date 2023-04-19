@@ -84,4 +84,4 @@ class RouteDefaultService extends RequestDefault {
   }
 }
 
-export = RouteDefaultService;
+export default RouteDefaultService;

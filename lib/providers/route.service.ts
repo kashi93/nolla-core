@@ -1,5 +1,6 @@
 import { Express } from "express";
 import { default as Route } from "../route/route";
+import path from "path";
 
 class RouteService {
   boot(app?: Express) {
@@ -8,9 +9,9 @@ class RouteService {
 
   register(app?: Express) {
     Route.controllerNameSpace("/app/controllers/", () =>
-      require(`${process.cwd()}/routes/web`)
+      require(`${path.dirname(require.main?.filename)}/routes/web`)
     );
   }
 }
 
-export = RouteService;
+export default RouteService;

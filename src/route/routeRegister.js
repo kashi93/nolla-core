@@ -10,29 +10,6 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -293,24 +270,23 @@ var RouteRegister = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var path, middlewares, m, _m, p, e_4_1;
             return __generator(this, function (_f) {
-                var _g;
                 switch (_f.label) {
                     case 0:
                         path = require("path");
                         middlewares = [];
                         _f.label = 1;
                     case 1:
-                        _f.trys.push([1, 10, 11, 16]);
+                        _f.trys.push([1, 9, 10, 15]);
                         _a = true, middlewareList_1 = __asyncValues(middlewareList);
                         _f.label = 2;
                     case 2: return [4 /*yield*/, middlewareList_1.next()];
                     case 3:
-                        if (!(middlewareList_1_1 = _f.sent(), _b = middlewareList_1_1.done, !_b)) return [3 /*break*/, 9];
+                        if (!(middlewareList_1_1 = _f.sent(), _b = middlewareList_1_1.done, !_b)) return [3 /*break*/, 8];
                         _d = middlewareList_1_1.value;
                         _a = false;
                         _f.label = 4;
                     case 4:
-                        _f.trys.push([4, , 7, 8]);
+                        _f.trys.push([4, , 6, 7]);
                         m = _d;
                         return [4 /*yield*/, config("app.routeMiddleware")];
                     case 5:
@@ -318,33 +294,31 @@ var RouteRegister = /** @class */ (function () {
                         if (_m[m] == null) {
                             throw new Error("Route middleware ".concat(m, " does not exist or does not register"));
                         }
-                        return [4 /*yield*/, (_g = "".concat(path.dirname((_e = require.main) === null || _e === void 0 ? void 0 : _e.filename), "/").concat(_m[m]), Promise.resolve().then(function () { return __importStar(require(_g)); }))];
-                    case 6:
-                        p = (_f.sent()).default;
+                        p = require("".concat(path.dirname((_e = require.main) === null || _e === void 0 ? void 0 : _e.filename), "/").concat(_m[m])).default;
                         middlewares.push(p);
-                        return [3 /*break*/, 8];
-                    case 7:
+                        return [3 /*break*/, 7];
+                    case 6:
                         _a = true;
                         return [7 /*endfinally*/];
-                    case 8: return [3 /*break*/, 2];
-                    case 9: return [3 /*break*/, 16];
-                    case 10:
+                    case 7: return [3 /*break*/, 2];
+                    case 8: return [3 /*break*/, 15];
+                    case 9:
                         e_4_1 = _f.sent();
                         e_4 = { error: e_4_1 };
-                        return [3 /*break*/, 16];
-                    case 11:
-                        _f.trys.push([11, , 14, 15]);
-                        if (!(!_a && !_b && (_c = middlewareList_1.return))) return [3 /*break*/, 13];
+                        return [3 /*break*/, 15];
+                    case 10:
+                        _f.trys.push([10, , 13, 14]);
+                        if (!(!_a && !_b && (_c = middlewareList_1.return))) return [3 /*break*/, 12];
                         return [4 /*yield*/, _c.call(middlewareList_1)];
-                    case 12:
+                    case 11:
                         _f.sent();
-                        _f.label = 13;
-                    case 13: return [3 /*break*/, 15];
-                    case 14:
+                        _f.label = 12;
+                    case 12: return [3 /*break*/, 14];
+                    case 13:
                         if (e_4) throw e_4.error;
                         return [7 /*endfinally*/];
-                    case 15: return [7 /*endfinally*/];
-                    case 16:
+                    case 14: return [7 /*endfinally*/];
+                    case 15:
                         app.get.apply(app, __spreadArray(__spreadArray([url], middlewares, false), [function (req, res, next) {
                                 var _a;
                                 return __awaiter(this, void 0, void 0, function () {
@@ -416,7 +390,6 @@ var RouteRegister = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var path, middlewares, _i, middlewareList_2, m, _m, p;
             return __generator(this, function (_b) {
-                var _c;
                 switch (_b.label) {
                     case 0:
                         path = require("path");
@@ -424,7 +397,7 @@ var RouteRegister = /** @class */ (function () {
                         _i = 0, middlewareList_2 = middlewareList;
                         _b.label = 1;
                     case 1:
-                        if (!(_i < middlewareList_2.length)) return [3 /*break*/, 5];
+                        if (!(_i < middlewareList_2.length)) return [3 /*break*/, 4];
                         m = middlewareList_2[_i];
                         return [4 /*yield*/, config("app.routeMiddleware")];
                     case 2:
@@ -432,15 +405,13 @@ var RouteRegister = /** @class */ (function () {
                         if (_m[m] == null) {
                             throw new Error("Route middleware ".concat(m, " does not exist or does not register"));
                         }
-                        return [4 /*yield*/, (_c = "".concat(path.dirname((_a = require.main) === null || _a === void 0 ? void 0 : _a.filename), "/").concat(_m[m]), Promise.resolve().then(function () { return __importStar(require(_c)); }))];
-                    case 3:
-                        p = (_b.sent()).default;
+                        p = require("".concat(path.dirname((_a = require.main) === null || _a === void 0 ? void 0 : _a.filename), "/").concat(_m[m])).default;
                         middlewares.push(p);
-                        _b.label = 4;
-                    case 4:
+                        _b.label = 3;
+                    case 3:
                         _i++;
                         return [3 /*break*/, 1];
-                    case 5:
+                    case 4:
                         app.post.apply(app, __spreadArray(__spreadArray([url], middlewares, false), [function (req, res, next) {
                                 var _a;
                                 return __awaiter(this, void 0, void 0, function () {

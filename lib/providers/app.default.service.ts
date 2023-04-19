@@ -6,4 +6,4 @@ class AppDefaultService {
   }
 }
 
-export = AppDefaultService;
+export default AppDefaultService;

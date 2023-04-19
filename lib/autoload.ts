@@ -10,3 +10,4 @@ import "./global_functions/route_list";
 import "./global_functions/app_alias";
 import "./global_functions/storage_path";
 import "./global_functions/public_path";
+import "./global_functions/node_path";

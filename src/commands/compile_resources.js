@@ -50,7 +50,7 @@ exports.default = yargs_1.default.command({
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, (0, copy_1.copy)("".concat(process.cwd(), "/lib/resources"), "".concat(process.cwd(), "/build/resources"))];
+                    case 0: return [4 /*yield*/, (0, copy_1.copy)("".concat(process.cwd(), "/resources"), "".concat(process.cwd(), "/dist/resources"))];
                     case 1:
                         _a.sent();
                         console.log(chalk_1.default.green("Resources successfully compiled."));

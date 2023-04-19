@@ -105,7 +105,7 @@ export default class RouteRegister {
           `Route middleware ${m} does not exist or does not register`
         );
       }
-      const { default: p } = await import(
+      const { default: p } = require(
         `${path.dirname(require.main?.filename)}/${_m[m]}`
       );
       middlewares.push(p);
@@ -177,7 +177,7 @@ export default class RouteRegister {
           `Route middleware ${m} does not exist or does not register`
         );
       }
-      const { default: p } = await import(
+      const { default: p } = require(
         `${path.dirname(require.main?.filename)}/${_m[m]}`
       );
       middlewares.push(p);

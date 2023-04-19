@@ -13,4 +13,4 @@ var ViewDefaultService = /** @class */ (function () {
     };
     return ViewDefaultService;
 }());
-module.exports = ViewDefaultService;
+exports.default = ViewDefaultService;

@@ -64,6 +64,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var dateTime_1 = require("../rainbows/dateTime");
 var request_default_1 = __importDefault(require("../route/request.default"));
 var multer_1 = __importDefault(require("multer"));
@@ -138,4 +139,4 @@ var RouteDefaultService = /** @class */ (function (_super) {
     };
     return RouteDefaultService;
 }(request_default_1.default));
-module.exports = RouteDefaultService;
+exports.default = RouteDefaultService;

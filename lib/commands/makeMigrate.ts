@@ -20,7 +20,7 @@ export default yargs.command({
 
     if ((await config("database.default")) == "mysql") {
       if (!(await checkMysqlTableExist("migrations"))) {
-        const { default: Migration } = await import(
+        const { default: Migration } = require(
           "../database/mysql/migrations/000000_migrations"
         );
         await Migration.up();
@@ -34,7 +34,7 @@ export default yargs.command({
     const migrations = await fs.promises.readdir(p);
 
     for await (const migrate of migrations) {
-      const { default: Migration } = await import(`${p}/${migrate}`);
+      const { default: Migration } = require(`${p}/${migrate}`);
       const name = migrate.split(".");
       name.pop();
       if (!argv.rollback) {
@@ -49,7 +49,7 @@ export default yargs.command({
           });
         }
       } else {
-        const { default: m1 } = await import(
+        const { default: m1 } = require(
           "../database/mysql/migrations/000000_migrations"
         );
         await m1.down();

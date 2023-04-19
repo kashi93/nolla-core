@@ -3,7 +3,7 @@ import {} from "../nolla-core";
 globalThis.config = async (con: string) => {
   const params = con.split(".");
   const path = require("path");
-  const { default: c } = await import(
+  const { default: c } = require(
     `${path.dirname(require.main?.filename)}/config/${params[0]}`
   );
 

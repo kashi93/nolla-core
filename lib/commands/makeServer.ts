@@ -2,7 +2,6 @@ import express, { Express } from "express";
 import yargs from "yargs";
 import { storeError } from "../error_handler/storeError";
 import RouteRegister from "../route/routeRegister";
-import path from "path";
 
 export default yargs.command({
   command: "serve",
@@ -17,7 +16,7 @@ export default yargs.command({
     app.use(express.static(`${process.cwd()}/public`));
 
     for await (const prov of await config("app.providers")) {
-      const { default: p } = await import(`${process.cwd()}/${prov}`);
+      const { default: p } = require(prov);
       const c = new p();
       c.boot(app);
     }

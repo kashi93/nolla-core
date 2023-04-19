@@ -5,6 +5,7 @@
   "main": "src/nolla.js",
   "types": "lib/nolla-core.d.ts",
   "scripts": {
+    "dev":"nodemon",
     "build": "rm -rf src && tsc && copyfiles -u 1 lib/template/**/*.txt src/"
   },
   "keywords": [],

@@ -99,4 +99,5 @@ declare global {
   };
   var storage_path: (path?: string) => string;
   var public_path: (path?: string) => string;
+  var node_path: (path?: string) => string;
 }

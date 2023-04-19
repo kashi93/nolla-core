@@ -12,3 +12,4 @@ require("./global_functions/route_list");
 require("./global_functions/app_alias");
 require("./global_functions/storage_path");
 require("./global_functions/public_path");
+require("./global_functions/node_path");

@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -91,101 +68,95 @@ exports.default = yargs_1.default.command({
         return __awaiter(this, void 0, void 0, function () {
             var path, Migration, p, migrations, _e, migrations_1, migrations_1_1, migrate, Migration, name_1, m1, e_1_1;
             return __generator(this, function (_f) {
-                var _g;
                 switch (_f.label) {
                     case 0:
                         path = require("path");
                         return [4 /*yield*/, config("database.default")];
                     case 1:
-                        if (!((_f.sent()) == "mysql")) return [3 /*break*/, 6];
+                        if (!((_f.sent()) == "mysql")) return [3 /*break*/, 5];
                         return [4 /*yield*/, (0, checkMysqlTableExist_1.checkMysqlTableExist)("migrations")];
                     case 2:
-                        if (!!(_f.sent())) return [3 /*break*/, 6];
-                        return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require("../database/mysql/migrations/000000_migrations")); })];
-                    case 3:
-                        Migration = (_f.sent()).default;
+                        if (!!(_f.sent())) return [3 /*break*/, 5];
+                        Migration = require("../database/mysql/migrations/000000_migrations").default;
                         return [4 /*yield*/, Migration.up()];
-                    case 4:
+                    case 3:
                         _f.sent();
                         return [4 /*yield*/, migration_model_1.default.create({
                                 migration: "000000_migrations",
                             })];
-                    case 5:
+                    case 4:
                         _f.sent();
-                        _f.label = 6;
-                    case 6:
+                        _f.label = 5;
+                    case 5:
                         p = "".concat(path.dirname((_d = require.main) === null || _d === void 0 ? void 0 : _d.filename), "/migrations/");
                         return [4 /*yield*/, fs_1.default.promises.readdir(p)];
-                    case 7:
+                    case 6:
                         migrations = _f.sent();
-                        _f.label = 8;
-                    case 8:
-                        _f.trys.push([8, 25, 26, 31]);
+                        _f.label = 7;
+                    case 7:
+                        _f.trys.push([7, 22, 23, 28]);
                         _e = true, migrations_1 = __asyncValues(migrations);
-                        _f.label = 9;
-                    case 9: return [4 /*yield*/, migrations_1.next()];
-                    case 10:
-                        if (!(migrations_1_1 = _f.sent(), _a = migrations_1_1.done, !_a)) return [3 /*break*/, 24];
+                        _f.label = 8;
+                    case 8: return [4 /*yield*/, migrations_1.next()];
+                    case 9:
+                        if (!(migrations_1_1 = _f.sent(), _a = migrations_1_1.done, !_a)) return [3 /*break*/, 21];
                         _c = migrations_1_1.value;
                         _e = false;
-                        _f.label = 11;
-                    case 11:
-                        _f.trys.push([11, , 22, 23]);
+                        _f.label = 10;
+                    case 10:
+                        _f.trys.push([10, , 19, 20]);
                         migrate = _c;
-                        return [4 /*yield*/, (_g = "".concat(p, "/").concat(migrate), Promise.resolve().then(function () { return __importStar(require(_g)); }))];
-                    case 12:
-                        Migration = (_f.sent()).default;
+                        Migration = require("".concat(p, "/").concat(migrate)).default;
                         name_1 = migrate.split(".");
                         name_1.pop();
-                        if (!!argv.rollback) return [3 /*break*/, 17];
+                        if (!!argv.rollback) return [3 /*break*/, 15];
                         return [4 /*yield*/, migration_model_1.default
                                 .where("migration", "=", name_1.join(""))
                                 .first()];
-                    case 13:
-                        if (!((_f.sent()) == null)) return [3 /*break*/, 16];
+                    case 11:
+                        if (!((_f.sent()) == null)) return [3 /*break*/, 14];
                         return [4 /*yield*/, Migration.up()];
-                    case 14:
+                    case 12:
                         _f.sent();
                         return [4 /*yield*/, migration_model_1.default.create({
                                 migration: name_1.join(""),
                             })];
-                    case 15:
+                    case 13:
                         _f.sent();
-                        _f.label = 16;
-                    case 16: return [3 /*break*/, 21];
-                    case 17: return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require("../database/mysql/migrations/000000_migrations")); })];
-                    case 18:
-                        m1 = (_f.sent()).default;
+                        _f.label = 14;
+                    case 14: return [3 /*break*/, 18];
+                    case 15:
+                        m1 = require("../database/mysql/migrations/000000_migrations").default;
                         return [4 /*yield*/, m1.down()];
-                    case 19:
+                    case 16:
                         _f.sent();
                         return [4 /*yield*/, Migration.down()];
-                    case 20:
+                    case 17:
                         _f.sent();
-                        _f.label = 21;
-                    case 21: return [3 /*break*/, 23];
-                    case 22:
+                        _f.label = 18;
+                    case 18: return [3 /*break*/, 20];
+                    case 19:
                         _e = true;
                         return [7 /*endfinally*/];
-                    case 23: return [3 /*break*/, 9];
-                    case 24: return [3 /*break*/, 31];
-                    case 25:
+                    case 20: return [3 /*break*/, 8];
+                    case 21: return [3 /*break*/, 28];
+                    case 22:
                         e_1_1 = _f.sent();
                         e_1 = { error: e_1_1 };
-                        return [3 /*break*/, 31];
-                    case 26:
-                        _f.trys.push([26, , 29, 30]);
-                        if (!(!_e && !_a && (_b = migrations_1.return))) return [3 /*break*/, 28];
+                        return [3 /*break*/, 28];
+                    case 23:
+                        _f.trys.push([23, , 26, 27]);
+                        if (!(!_e && !_a && (_b = migrations_1.return))) return [3 /*break*/, 25];
                         return [4 /*yield*/, _b.call(migrations_1)];
-                    case 27:
+                    case 24:
                         _f.sent();
-                        _f.label = 28;
-                    case 28: return [3 /*break*/, 30];
-                    case 29:
+                        _f.label = 25;
+                    case 25: return [3 /*break*/, 27];
+                    case 26:
                         if (e_1) throw e_1.error;
                         return [7 /*endfinally*/];
-                    case 30: return [7 /*endfinally*/];
-                    case 31:
+                    case 27: return [7 /*endfinally*/];
+                    case 28:
                         console.log(chalk_1.default.green("Migrations successfully"));
                         return [2 /*return*/];
                 }
