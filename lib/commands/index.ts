@@ -11,6 +11,7 @@ module.exports = (() => {
     .command(require("./makeTest"))
     .command(require("./compile_resources"))
     .command(require("./routeList"))
+    .command(require("./lucyHelp"))
     .showHelpOnFail(true)
     .help("help", "Show usage instructions.")
     .command({

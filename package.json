@@ -5,8 +5,8 @@
   "main": "src/nolla.js",
   "types": "lib/nolla-core.d.ts",
   "scripts": {
-    "dev":"nodemon",
-    "build": "rm -rf src && tsc && copyfiles -u 1 lib/template/**/*.txt src/"
+    "dev": "nodemon",
+    "build": "rm -rf src && tsc && copyfiles -u 1 lib/template/**/*.txt lib/template/**/*.css lib/template/**/*.png src/"
   },
   "keywords": [],
   "author": "",
@@ -60,6 +60,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "popper": "^1.0.1",
+    "prompts": "^2.4.2",
     "uuid": "^9.0.0",
     "yargs": "^17.5.1"
   }

@@ -180,54 +180,54 @@ var ReactUiCommand = /** @class */ (function () {
     };
     ReactUiCommand.prototype.css = function () {
         var _a, e_2, _b, _c;
-        var _d, _e, _f, _g, _h;
+        var _d, _e, _f;
         return __awaiter(this, void 0, void 0, function () {
-            var csFiles, _j, csFiles_1, csFiles_1_1, css, e_2_1;
-            return __generator(this, function (_k) {
-                switch (_k.label) {
+            var csFiles, _g, csFiles_1, csFiles_1_1, css, e_2_1;
+            return __generator(this, function (_h) {
+                switch (_h.label) {
                     case 0:
                         if (!!fs_1.default.existsSync("".concat(path_1.default.dirname((_d = require.main) === null || _d === void 0 ? void 0 : _d.filename), "/resources/css/react"))) return [3 /*break*/, 2];
                         return [4 /*yield*/, fs_1.default.promises.mkdir("".concat(path_1.default.dirname((_e = require.main) === null || _e === void 0 ? void 0 : _e.filename), "/resources/css/react"))];
                     case 1:
-                        _k.sent();
-                        _k.label = 2;
-                    case 2: return [4 /*yield*/, fs_1.default.promises.readdir("".concat(path_1.default.dirname((_f = require.main) === null || _f === void 0 ? void 0 : _f.filename), "/template/ui/react/css"))];
+                        _h.sent();
+                        _h.label = 2;
+                    case 2: return [4 /*yield*/, fs_1.default.promises.readdir(node_path("nolla-core/src/template/ui/react/css"))];
                     case 3:
-                        csFiles = _k.sent();
-                        _k.label = 4;
+                        csFiles = _h.sent();
+                        _h.label = 4;
                     case 4:
-                        _k.trys.push([4, 12, 13, 18]);
-                        _j = true, csFiles_1 = __asyncValues(csFiles);
-                        _k.label = 5;
+                        _h.trys.push([4, 12, 13, 18]);
+                        _g = true, csFiles_1 = __asyncValues(csFiles);
+                        _h.label = 5;
                     case 5: return [4 /*yield*/, csFiles_1.next()];
                     case 6:
-                        if (!(csFiles_1_1 = _k.sent(), _a = csFiles_1_1.done, !_a)) return [3 /*break*/, 11];
+                        if (!(csFiles_1_1 = _h.sent(), _a = csFiles_1_1.done, !_a)) return [3 /*break*/, 11];
                         _c = csFiles_1_1.value;
-                        _j = false;
-                        _k.label = 7;
+                        _g = false;
+                        _h.label = 7;
                     case 7:
-                        _k.trys.push([7, , 9, 10]);
+                        _h.trys.push([7, , 9, 10]);
                         css = _c;
-                        return [4 /*yield*/, fs_1.default.promises.copyFile("".concat(path_1.default.dirname((_g = require.main) === null || _g === void 0 ? void 0 : _g.filename), "/template/ui/react/css/").concat(css), "".concat(path_1.default.dirname((_h = require.main) === null || _h === void 0 ? void 0 : _h.filename), "/resources/css/react/").concat(css))];
+                        return [4 /*yield*/, fs_1.default.promises.copyFile(node_path("nolla-core/src/template/ui/react/css/".concat(css)), "".concat(path_1.default.dirname((_f = require.main) === null || _f === void 0 ? void 0 : _f.filename), "/resources/css/react/").concat(css))];
                     case 8:
-                        _k.sent();
+                        _h.sent();
                         return [3 /*break*/, 10];
                     case 9:
-                        _j = true;
+                        _g = true;
                         return [7 /*endfinally*/];
                     case 10: return [3 /*break*/, 5];
                     case 11: return [3 /*break*/, 18];
                     case 12:
-                        e_2_1 = _k.sent();
+                        e_2_1 = _h.sent();
                         e_2 = { error: e_2_1 };
                         return [3 /*break*/, 18];
                     case 13:
-                        _k.trys.push([13, , 16, 17]);
-                        if (!(!_j && !_a && (_b = csFiles_1.return))) return [3 /*break*/, 15];
+                        _h.trys.push([13, , 16, 17]);
+                        if (!(!_g && !_a && (_b = csFiles_1.return))) return [3 /*break*/, 15];
                         return [4 /*yield*/, _b.call(csFiles_1)];
                     case 14:
-                        _k.sent();
-                        _k.label = 15;
+                        _h.sent();
+                        _h.label = 15;
                     case 15: return [3 /*break*/, 17];
                     case 16:
                         if (e_2) throw e_2.error;
@@ -240,54 +240,54 @@ var ReactUiCommand = /** @class */ (function () {
     };
     ReactUiCommand.prototype.js = function () {
         var _a, e_3, _b, _c;
-        var _d, _e, _f, _g, _h;
+        var _d, _e, _f;
         return __awaiter(this, void 0, void 0, function () {
-            var jsFiles, _j, jsFiles_1, jsFiles_1_1, js, e_3_1;
-            return __generator(this, function (_k) {
-                switch (_k.label) {
+            var jsFiles, _g, jsFiles_1, jsFiles_1_1, js, e_3_1;
+            return __generator(this, function (_h) {
+                switch (_h.label) {
                     case 0:
                         if (!!fs_1.default.existsSync("".concat(path_1.default.dirname((_d = require.main) === null || _d === void 0 ? void 0 : _d.filename), "/resources/js/react"))) return [3 /*break*/, 2];
                         return [4 /*yield*/, fs_1.default.promises.mkdir("".concat(path_1.default.dirname((_e = require.main) === null || _e === void 0 ? void 0 : _e.filename), "/resources/js/react"))];
                     case 1:
-                        _k.sent();
-                        _k.label = 2;
-                    case 2: return [4 /*yield*/, fs_1.default.promises.readdir("".concat(path_1.default.dirname((_f = require.main) === null || _f === void 0 ? void 0 : _f.filename), "/template/ui/react/js"))];
+                        _h.sent();
+                        _h.label = 2;
+                    case 2: return [4 /*yield*/, fs_1.default.promises.readdir(node_path("nolla-core/src/template/ui/react/js"))];
                     case 3:
-                        jsFiles = _k.sent();
-                        _k.label = 4;
+                        jsFiles = _h.sent();
+                        _h.label = 4;
                     case 4:
-                        _k.trys.push([4, 12, 13, 18]);
-                        _j = true, jsFiles_1 = __asyncValues(jsFiles);
-                        _k.label = 5;
+                        _h.trys.push([4, 12, 13, 18]);
+                        _g = true, jsFiles_1 = __asyncValues(jsFiles);
+                        _h.label = 5;
                     case 5: return [4 /*yield*/, jsFiles_1.next()];
                     case 6:
-                        if (!(jsFiles_1_1 = _k.sent(), _a = jsFiles_1_1.done, !_a)) return [3 /*break*/, 11];
+                        if (!(jsFiles_1_1 = _h.sent(), _a = jsFiles_1_1.done, !_a)) return [3 /*break*/, 11];
                         _c = jsFiles_1_1.value;
-                        _j = false;
-                        _k.label = 7;
+                        _g = false;
+                        _h.label = 7;
                     case 7:
-                        _k.trys.push([7, , 9, 10]);
+                        _h.trys.push([7, , 9, 10]);
                         js = _c;
-                        return [4 /*yield*/, fs_1.default.promises.copyFile("".concat(path_1.default.dirname((_g = require.main) === null || _g === void 0 ? void 0 : _g.filename), "/template/ui/react/js/").concat(js), "".concat(path_1.default.dirname((_h = require.main) === null || _h === void 0 ? void 0 : _h.filename), "/resources/js/react/").concat(js.replace(/.txt/, "")))];
+                        return [4 /*yield*/, fs_1.default.promises.copyFile(node_path("nolla-core/src/template/ui/react/js/".concat(js)), "".concat(path_1.default.dirname((_f = require.main) === null || _f === void 0 ? void 0 : _f.filename), "/resources/js/react/").concat(js.replace(/.txt/, "")))];
                     case 8:
-                        _k.sent();
+                        _h.sent();
                         return [3 /*break*/, 10];
                     case 9:
-                        _j = true;
+                        _g = true;
                         return [7 /*endfinally*/];
                     case 10: return [3 /*break*/, 5];
                     case 11: return [3 /*break*/, 18];
                     case 12:
-                        e_3_1 = _k.sent();
+                        e_3_1 = _h.sent();
                         e_3 = { error: e_3_1 };
                         return [3 /*break*/, 18];
                     case 13:
-                        _k.trys.push([13, , 16, 17]);
-                        if (!(!_j && !_a && (_b = jsFiles_1.return))) return [3 /*break*/, 15];
+                        _h.trys.push([13, , 16, 17]);
+                        if (!(!_g && !_a && (_b = jsFiles_1.return))) return [3 /*break*/, 15];
                         return [4 /*yield*/, _b.call(jsFiles_1)];
                     case 14:
-                        _k.sent();
-                        _k.label = 15;
+                        _h.sent();
+                        _h.label = 15;
                     case 15: return [3 /*break*/, 17];
                     case 16:
                         if (e_3) throw e_3.error;

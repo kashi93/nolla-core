@@ -40,16 +40,54 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var yargs_1 = __importDefault(require("yargs"));
-var compileResources_1 = __importDefault(require("../rainbows/lucy/compileResources"));
 exports.default = yargs_1.default.command({
-    command: "compile:resources",
-    describe: "compile all resources/**/* to dist/resources/**/*",
+    command: "lucy",
+    describe: "",
     builder: {},
     handler: function (argv) {
         return __awaiter(this, void 0, void 0, function () {
+            var prompts, response, lucy, r, c;
             return __generator(this, function (_a) {
-                new compileResources_1.default().finally();
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        prompts = require('prompts');
+                        return [4 /*yield*/, prompts({
+                                type: 'select',
+                                name: 'lucy',
+                                message: 'Hello! How can I assist you today?',
+                                choices: [
+                                    {
+                                        title: 'Generate UI',
+                                        description: 'Generate front-end scaffolding for the application preset type (vue, react)',
+                                        value: 'generateUi'
+                                    },
+                                    {
+                                        title: 'Compile Resources',
+                                        description: 'Compile all resources/**/* to dist/resources/**/*',
+                                        value: 'compileResources'
+                                    },
+                                    {
+                                        title: 'Create Controller',
+                                        description: 'Create a new controller class',
+                                        value: "createController"
+                                    },
+                                    {
+                                        title: 'Migrate',
+                                        description: 'Run the database migrations',
+                                        value: "migrate"
+                                    },
+                                ],
+                            })];
+                    case 1:
+                        response = _a.sent();
+                        lucy = response.lucy;
+                        if (lucy == null)
+                            return [2 /*return*/];
+                        r = require("../rainbows/lucy/".concat(lucy)).default;
+                        c = new r();
+                        c.handler();
+                        return [2 /*return*/];
+                }
             });
         });
     },

@@ -5,7 +5,7 @@ class ReactUiRollbackCommand {
   async handle() {
     if (await this.js()) {
       await this.css();
-      await this.nodeModules();
+      // await this.nodeModules();
       await this.app();
       await this.webpack();
       await this.pack();

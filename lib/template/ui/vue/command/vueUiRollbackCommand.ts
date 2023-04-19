@@ -4,7 +4,7 @@ import path from "path";
 class VueUiRollbackCommand {
   async handle() {
     if (await this.js()) {
-      await this.nodeModules();
+      // await this.nodeModules();
       await this.app();
       await this.webpack();
       await this.pack();

@@ -39,18 +39,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var yargs_1 = __importDefault(require("yargs"));
-var compileResources_1 = __importDefault(require("../rainbows/lucy/compileResources"));
-exports.default = yargs_1.default.command({
-    command: "compile:resources",
-    describe: "compile all resources/**/* to dist/resources/**/*",
-    builder: {},
-    handler: function (argv) {
+var chalk_1 = __importDefault(require("chalk"));
+var copy_1 = require("../copy");
+var compileResources = /** @class */ (function () {
+    function compileResources() {
+    }
+    compileResources.prototype.handler = function () {
+        this.finally();
+    };
+    compileResources.prototype.finally = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                new compileResources_1.default().finally();
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, (0, copy_1.copy)("".concat(process.cwd(), "/resources"), "".concat(process.cwd(), "/dist/resources"))];
+                    case 1:
+                        _a.sent();
+                        console.log(chalk_1.default.green("Resources successfully compiled."));
+                        return [2 /*return*/];
+                }
             });
         });
-    },
-});
+    };
+    return compileResources;
+}());
+exports.default = compileResources;

@@ -74,24 +74,13 @@ class VueUiCommand {
         `${path.dirname(require.main?.filename)}/resources/js/vue`
       );
     }
-    const jsFiles = await fs.promises.readdir(
-      `${path.dirname(require.main?.filename)}/template/ui/vue/js`
-    );
+    const jsFiles = await fs.promises.readdir(node_path("nolla-core/src/template/ui/vue/js"));
 
     for await (const js of jsFiles) {
       if (
-        !fs
-          .lstatSync(
-            `${path.dirname(
-              require.main?.filename
-            )}/template/ui/vue/js/${js}`
-          )
-          .isDirectory()
+        !fs.lstatSync(node_path(`nolla-core/src/template/ui/vue/js/${js}`)).isDirectory()
       ) {
-        await fs.promises.copyFile(
-          `${path.dirname(
-            require.main?.filename
-          )}/template/ui/vue/js/${js}`,
+        await fs.promises.copyFile(node_path(`nolla-core/src/template/ui/vue/js/${js}`),
           `${path.dirname(
             require.main?.filename
           )}/resources/js/vue/${js.replace(/.txt/, "")}`
@@ -107,17 +96,11 @@ class VueUiCommand {
           );
         }
 
-        const childs = await fs.promises.readdir(
-          `${path.dirname(
-            require.main?.filename
-          )}/template/ui/vue/js/${js}`
-        );
+        const childs = await fs.promises.readdir(node_path(`nolla-core/src/template/ui/vue/js/${js}`));
 
         for await (const c of childs) {
           await fs.promises.copyFile(
-            `${path.dirname(
-              require.main?.filename
-            )}/template/ui/vue/js/${js}/${c}`,
+            node_path(`nolla-core/src/template/ui/vue/js/${js}/${c}`),
             `${path.dirname(
               require.main?.filename
             )}/resources/js/vue/${js}/${c.replace(/.txt/, "")}`

@@ -35,20 +35,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __asyncValues = (this && this.__asyncValues) || function (o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var yargs_1 = __importDefault(require("yargs"));
-var fs_1 = __importDefault(require("fs"));
-var chalk_1 = __importDefault(require("chalk"));
+var createController_1 = __importDefault(require("../rainbows/lucy/createController"));
 exports.default = yargs_1.default.command({
     command: "create:controller",
     describe: "Create a new controller class",
@@ -68,128 +60,10 @@ exports.default = yargs_1.default.command({
         // },
     },
     handler: function (argv) {
-        var _a, e_1, _b, _c;
-        var _d, _e;
         return __awaiter(this, void 0, void 0, function () {
-            var path, p, arr1, con, m, condir, typesdir, _f, arr1_1, arr1_1_1, dir, e_1_1, error_1;
-            return __generator(this, function (_g) {
-                switch (_g.label) {
-                    case 0:
-                        path = require("path");
-                        p = "".concat(path.dirname((_d = require.main) === null || _d === void 0 ? void 0 : _d.filename), "/app/controllers/");
-                        arr1 = String(argv.name).split("/");
-                        con = arr1[arr1.length - 1];
-                        m = null;
-                        condir = "./";
-                        typesdir = "../..";
-                        arr1.pop();
-                        if (!Number.isNaN(parseInt(String(con))) ||
-                            !Number.isNaN(parseInt(String(con)))) {
-                            console.log(chalk_1.default.red("Invalid name!"));
-                            return [2 /*return*/];
-                        }
-                        if (con == "controller") {
-                            console.log(chalk_1.default.red("Invalid name!"));
-                            return [2 /*return*/];
-                        }
-                        if (!(con.trim().length > 0)) return [3 /*break*/, 14];
-                        _g.label = 1;
-                    case 1:
-                        _g.trys.push([1, 6, 7, 12]);
-                        _f = true, arr1_1 = __asyncValues(arr1);
-                        _g.label = 2;
-                    case 2: return [4 /*yield*/, arr1_1.next()];
-                    case 3:
-                        if (!(arr1_1_1 = _g.sent(), _a = arr1_1_1.done, !_a)) return [3 /*break*/, 5];
-                        _c = arr1_1_1.value;
-                        _f = false;
-                        try {
-                            dir = _c;
-                            typesdir += "/..";
-                            condir += "../";
-                            p += dir.toLocaleLowerCase() + "/";
-                            fs_1.default.promises.mkdir(p);
-                        }
-                        finally {
-                            _f = true;
-                        }
-                        _g.label = 4;
-                    case 4: return [3 /*break*/, 2];
-                    case 5: return [3 /*break*/, 12];
-                    case 6:
-                        e_1_1 = _g.sent();
-                        e_1 = { error: e_1_1 };
-                        return [3 /*break*/, 12];
-                    case 7:
-                        _g.trys.push([7, , 10, 11]);
-                        if (!(!_f && !_a && (_b = arr1_1.return))) return [3 /*break*/, 9];
-                        return [4 /*yield*/, _b.call(arr1_1)];
-                    case 8:
-                        _g.sent();
-                        _g.label = 9;
-                    case 9: return [3 /*break*/, 11];
-                    case 10:
-                        if (e_1) throw e_1.error;
-                        return [7 /*endfinally*/];
-                    case 11: return [7 /*endfinally*/];
-                    case 12: return [4 /*yield*/, fs_1.default.promises
-                            .readFile("".concat(path.dirname((_e = require.main) === null || _e === void 0 ? void 0 : _e.filename), "/template/controller.template.txt"), "utf-8")
-                            .then(function (t) {
-                            return t
-                                .replace(/ControllerTemplate/g, "".concat(con
-                                .replace(/\s(.)/g, function ($1) {
-                                return $1.toUpperCase();
-                            })
-                                .replace(/\s/g, "")
-                                .replace(/^(.)/, function ($1) {
-                                return $1.toLowerCase();
-                            })))
-                                .replace(/con_dir/g, "".concat(condir, "controller"))
-                                .replace(/types_dir/g, typesdir);
-                        })];
-                    case 13:
-                        m = _g.sent();
-                        _g.label = 14;
-                    case 14:
-                        if (!(m != null)) return [3 /*break*/, 19];
-                        _g.label = 15;
-                    case 15:
-                        _g.trys.push([15, 17, , 19]);
-                        return [4 /*yield*/, fs_1.default.promises.open("".concat(p).concat(String(con)
-                                .replace(/\s(.)/g, function ($1) {
-                                return $1.toUpperCase();
-                            })
-                                .replace(/\s/g, "")
-                                .replace(/^(.)/, function ($1) {
-                                return $1.toLowerCase();
-                            }), ".ts"), "r")];
-                    case 16:
-                        _g.sent();
-                        console.log(chalk_1.default.red("Controller ".concat(con, " already exist!")));
-                        return [3 /*break*/, 19];
-                    case 17:
-                        error_1 = _g.sent();
-                        return [4 /*yield*/, fs_1.default.promises.writeFile("".concat(p).concat(String(con)
-                                .replace(/\s(.)/g, function ($1) {
-                                return $1.toUpperCase();
-                            })
-                                .replace(/\s/g, "")
-                                .replace(/^(.)/, function ($1) {
-                                return $1.toLowerCase();
-                            }), ".ts"), m, "utf-8")];
-                    case 18:
-                        _g.sent();
-                        console.log(chalk_1.default.green("Created Controller: ".concat(String(con)
-                            .replace(/\s(.)/g, function ($1) {
-                            return $1.toUpperCase();
-                        })
-                            .replace(/\s/g, "")
-                            .replace(/^(.)/, function ($1) {
-                            return $1.toLowerCase();
-                        }), ".ts")));
-                        return [3 /*break*/, 19];
-                    case 19: return [2 /*return*/];
-                }
+            return __generator(this, function (_a) {
+                new createController_1.default().finally(argv);
+                return [2 /*return*/];
             });
         });
     },

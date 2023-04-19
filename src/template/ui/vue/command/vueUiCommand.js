@@ -177,84 +177,82 @@ var VueUiCommand = /** @class */ (function () {
     };
     VueUiCommand.prototype.js = function () {
         var _a, e_2, _b, _c, _d, e_3, _e, _f;
-        var _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
+        var _g, _h, _j, _k, _l, _m;
         return __awaiter(this, void 0, void 0, function () {
-            var jsFiles, _t, jsFiles_1, jsFiles_1_1, js, childs, _u, childs_1, childs_1_1, c, e_3_1, e_2_1;
-            return __generator(this, function (_v) {
-                switch (_v.label) {
+            var jsFiles, _o, jsFiles_1, jsFiles_1_1, js, childs, _p, childs_1, childs_1_1, c, e_3_1, e_2_1;
+            return __generator(this, function (_q) {
+                switch (_q.label) {
                     case 0:
                         if (!!fs_1.default.existsSync("".concat(path_1.default.dirname((_g = require.main) === null || _g === void 0 ? void 0 : _g.filename), "/resources/js/vue"))) return [3 /*break*/, 2];
                         return [4 /*yield*/, fs_1.default.promises.mkdir("".concat(path_1.default.dirname((_h = require.main) === null || _h === void 0 ? void 0 : _h.filename), "/resources/js/vue"))];
                     case 1:
-                        _v.sent();
-                        _v.label = 2;
-                    case 2: return [4 /*yield*/, fs_1.default.promises.readdir("".concat(path_1.default.dirname((_j = require.main) === null || _j === void 0 ? void 0 : _j.filename), "/template/ui/vue/js"))];
+                        _q.sent();
+                        _q.label = 2;
+                    case 2: return [4 /*yield*/, fs_1.default.promises.readdir(node_path("nolla-core/src/template/ui/vue/js"))];
                     case 3:
-                        jsFiles = _v.sent();
-                        _v.label = 4;
+                        jsFiles = _q.sent();
+                        _q.label = 4;
                     case 4:
-                        _v.trys.push([4, 31, 32, 37]);
-                        _t = true, jsFiles_1 = __asyncValues(jsFiles);
-                        _v.label = 5;
+                        _q.trys.push([4, 31, 32, 37]);
+                        _o = true, jsFiles_1 = __asyncValues(jsFiles);
+                        _q.label = 5;
                     case 5: return [4 /*yield*/, jsFiles_1.next()];
                     case 6:
-                        if (!(jsFiles_1_1 = _v.sent(), _a = jsFiles_1_1.done, !_a)) return [3 /*break*/, 30];
+                        if (!(jsFiles_1_1 = _q.sent(), _a = jsFiles_1_1.done, !_a)) return [3 /*break*/, 30];
                         _c = jsFiles_1_1.value;
-                        _t = false;
-                        _v.label = 7;
+                        _o = false;
+                        _q.label = 7;
                     case 7:
-                        _v.trys.push([7, , 28, 29]);
+                        _q.trys.push([7, , 28, 29]);
                         js = _c;
-                        if (!!fs_1.default
-                            .lstatSync("".concat(path_1.default.dirname((_k = require.main) === null || _k === void 0 ? void 0 : _k.filename), "/template/ui/vue/js/").concat(js))
-                            .isDirectory()) return [3 /*break*/, 9];
-                        return [4 /*yield*/, fs_1.default.promises.copyFile("".concat(path_1.default.dirname((_l = require.main) === null || _l === void 0 ? void 0 : _l.filename), "/template/ui/vue/js/").concat(js), "".concat(path_1.default.dirname((_m = require.main) === null || _m === void 0 ? void 0 : _m.filename), "/resources/js/vue/").concat(js.replace(/.txt/, "")))];
+                        if (!!fs_1.default.lstatSync(node_path("nolla-core/src/template/ui/vue/js/".concat(js))).isDirectory()) return [3 /*break*/, 9];
+                        return [4 /*yield*/, fs_1.default.promises.copyFile(node_path("nolla-core/src/template/ui/vue/js/".concat(js)), "".concat(path_1.default.dirname((_j = require.main) === null || _j === void 0 ? void 0 : _j.filename), "/resources/js/vue/").concat(js.replace(/.txt/, "")))];
                     case 8:
-                        _v.sent();
+                        _q.sent();
                         return [3 /*break*/, 27];
                     case 9:
-                        if (!!fs_1.default.existsSync("".concat(path_1.default.dirname((_o = require.main) === null || _o === void 0 ? void 0 : _o.filename), "/resources/js/vue/").concat(js))) return [3 /*break*/, 11];
-                        return [4 /*yield*/, fs_1.default.promises.mkdir("".concat(path_1.default.dirname((_p = require.main) === null || _p === void 0 ? void 0 : _p.filename), "/resources/js/vue/").concat(js))];
+                        if (!!fs_1.default.existsSync("".concat(path_1.default.dirname((_k = require.main) === null || _k === void 0 ? void 0 : _k.filename), "/resources/js/vue/").concat(js))) return [3 /*break*/, 11];
+                        return [4 /*yield*/, fs_1.default.promises.mkdir("".concat(path_1.default.dirname((_l = require.main) === null || _l === void 0 ? void 0 : _l.filename), "/resources/js/vue/").concat(js))];
                     case 10:
-                        _v.sent();
-                        _v.label = 11;
-                    case 11: return [4 /*yield*/, fs_1.default.promises.readdir("".concat(path_1.default.dirname((_q = require.main) === null || _q === void 0 ? void 0 : _q.filename), "/template/ui/vue/js/").concat(js))];
+                        _q.sent();
+                        _q.label = 11;
+                    case 11: return [4 /*yield*/, fs_1.default.promises.readdir(node_path("nolla-core/src/template/ui/vue/js/".concat(js)))];
                     case 12:
-                        childs = _v.sent();
-                        _v.label = 13;
+                        childs = _q.sent();
+                        _q.label = 13;
                     case 13:
-                        _v.trys.push([13, 21, 22, 27]);
-                        _u = true, childs_1 = (e_3 = void 0, __asyncValues(childs));
-                        _v.label = 14;
+                        _q.trys.push([13, 21, 22, 27]);
+                        _p = true, childs_1 = (e_3 = void 0, __asyncValues(childs));
+                        _q.label = 14;
                     case 14: return [4 /*yield*/, childs_1.next()];
                     case 15:
-                        if (!(childs_1_1 = _v.sent(), _d = childs_1_1.done, !_d)) return [3 /*break*/, 20];
+                        if (!(childs_1_1 = _q.sent(), _d = childs_1_1.done, !_d)) return [3 /*break*/, 20];
                         _f = childs_1_1.value;
-                        _u = false;
-                        _v.label = 16;
+                        _p = false;
+                        _q.label = 16;
                     case 16:
-                        _v.trys.push([16, , 18, 19]);
+                        _q.trys.push([16, , 18, 19]);
                         c = _f;
-                        return [4 /*yield*/, fs_1.default.promises.copyFile("".concat(path_1.default.dirname((_r = require.main) === null || _r === void 0 ? void 0 : _r.filename), "/template/ui/vue/js/").concat(js, "/").concat(c), "".concat(path_1.default.dirname((_s = require.main) === null || _s === void 0 ? void 0 : _s.filename), "/resources/js/vue/").concat(js, "/").concat(c.replace(/.txt/, "")))];
+                        return [4 /*yield*/, fs_1.default.promises.copyFile(node_path("nolla-core/src/template/ui/vue/js/".concat(js, "/").concat(c)), "".concat(path_1.default.dirname((_m = require.main) === null || _m === void 0 ? void 0 : _m.filename), "/resources/js/vue/").concat(js, "/").concat(c.replace(/.txt/, "")))];
                     case 17:
-                        _v.sent();
+                        _q.sent();
                         return [3 /*break*/, 19];
                     case 18:
-                        _u = true;
+                        _p = true;
                         return [7 /*endfinally*/];
                     case 19: return [3 /*break*/, 14];
                     case 20: return [3 /*break*/, 27];
                     case 21:
-                        e_3_1 = _v.sent();
+                        e_3_1 = _q.sent();
                         e_3 = { error: e_3_1 };
                         return [3 /*break*/, 27];
                     case 22:
-                        _v.trys.push([22, , 25, 26]);
-                        if (!(!_u && !_d && (_e = childs_1.return))) return [3 /*break*/, 24];
+                        _q.trys.push([22, , 25, 26]);
+                        if (!(!_p && !_d && (_e = childs_1.return))) return [3 /*break*/, 24];
                         return [4 /*yield*/, _e.call(childs_1)];
                     case 23:
-                        _v.sent();
-                        _v.label = 24;
+                        _q.sent();
+                        _q.label = 24;
                     case 24: return [3 /*break*/, 26];
                     case 25:
                         if (e_3) throw e_3.error;
@@ -262,21 +260,21 @@ var VueUiCommand = /** @class */ (function () {
                     case 26: return [7 /*endfinally*/];
                     case 27: return [3 /*break*/, 29];
                     case 28:
-                        _t = true;
+                        _o = true;
                         return [7 /*endfinally*/];
                     case 29: return [3 /*break*/, 5];
                     case 30: return [3 /*break*/, 37];
                     case 31:
-                        e_2_1 = _v.sent();
+                        e_2_1 = _q.sent();
                         e_2 = { error: e_2_1 };
                         return [3 /*break*/, 37];
                     case 32:
-                        _v.trys.push([32, , 35, 36]);
-                        if (!(!_t && !_a && (_b = jsFiles_1.return))) return [3 /*break*/, 34];
+                        _q.trys.push([32, , 35, 36]);
+                        if (!(!_o && !_a && (_b = jsFiles_1.return))) return [3 /*break*/, 34];
                         return [4 /*yield*/, _b.call(jsFiles_1)];
                     case 33:
-                        _v.sent();
-                        _v.label = 34;
+                        _q.sent();
+                        _q.label = 34;
                     case 34: return [3 /*break*/, 36];
                     case 35:
                         if (e_2) throw e_2.error;

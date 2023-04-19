@@ -79,15 +79,10 @@ class ReactUiCommand {
       );
     }
 
-    const csFiles = await fs.promises.readdir(
-      `${path.dirname(require.main?.filename)}/template/ui/react/css`
-    );
+    const csFiles = await fs.promises.readdir(node_path("nolla-core/src/template/ui/react/css"));
 
     for await (const css of csFiles) {
-      await fs.promises.copyFile(
-        `${path.dirname(
-          require.main?.filename
-        )}/template/ui/react/css/${css}`,
+      await fs.promises.copyFile(node_path(`nolla-core/src/template/ui/react/css/${css}`),
         `${path.dirname(require.main?.filename)}/resources/css/react/${css}`
       );
     }
@@ -104,13 +99,10 @@ class ReactUiCommand {
       );
     }
     const jsFiles = await fs.promises.readdir(
-      `${path.dirname(require.main?.filename)}/template/ui/react/js`
+      node_path("nolla-core/src/template/ui/react/js")
     );
     for await (const js of jsFiles) {
-      await fs.promises.copyFile(
-        `${path.dirname(
-          require.main?.filename
-        )}/template/ui/react/js/${js}`,
+      await fs.promises.copyFile(node_path(`nolla-core/src/template/ui/react/js/${js}`),
         `${path.dirname(
           require.main?.filename
         )}/resources/js/react/${js.replace(/.txt/, "")}`

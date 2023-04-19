@@ -76,6 +76,14 @@ export interface TableConfig {
   length?:number
 }
 
+export interface SelectOption{
+  question:string,
+  options:string[],
+  answers:string[],
+  pointer:string,
+  color:string
+}
+
 export const thisIsAModule = true;
 
 declare global {

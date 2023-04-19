@@ -40,13 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var yargs_1 = __importDefault(require("yargs"));
-var reactUiCommand_1 = __importDefault(require("../template/ui/react/command/reactUiCommand"));
-var vueUiCommand_1 = __importDefault(require("../template/ui/vue/command/vueUiCommand"));
-var vueUiRollbackCommand_1 = __importDefault(require("../template/ui/vue/command/vueUiRollbackCommand"));
-var chalk_1 = __importDefault(require("chalk"));
-var reactUiRollbackCommand_1 = __importDefault(require("../template/ui/react/command/reactUiRollbackCommand"));
-var bootstrapUiCommand_1 = __importDefault(require("../template/ui/bootstrap/command/bootstrapUiCommand"));
-var child_process_1 = require("child_process");
+var generateUi_1 = __importDefault(require("../rainbows/lucy/generateUi"));
 exports.default = yargs_1.default.command({
     command: "generate:ui",
     describe: "Generate front-end scaffolding for the application preset type (vue, react)",
@@ -65,89 +59,9 @@ exports.default = yargs_1.default.command({
     },
     handler: function (argv) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _a = argv.type;
-                        switch (_a) {
-                            case "react": return [3 /*break*/, 1];
-                            case "vue": return [3 /*break*/, 8];
-                        }
-                        return [3 /*break*/, 15];
-                    case 1:
-                        if (!!argv.rollback) return [3 /*break*/, 4];
-                        return [4 /*yield*/, vueUiRollbackCommand_1.default.handle()];
-                    case 2:
-                        _b.sent();
-                        return [4 /*yield*/, reactUiCommand_1.default.handle()];
-                    case 3:
-                        _b.sent();
-                        console.log(chalk_1.default.green("React scaffolding installed successfully."));
-                        return [3 /*break*/, 7];
-                    case 4: return [4 /*yield*/, reactUiRollbackCommand_1.default.handle()];
-                    case 5:
-                        _b.sent();
-                        return [4 /*yield*/, bootstrapUiCommand_1.default.handle()];
-                    case 6:
-                        _b.sent();
-                        console.log(chalk_1.default.green("React scaffolding rollback successfully."));
-                        _b.label = 7;
-                    case 7:
-                        try {
-                            (0, child_process_1.execSync)("npm install", { stdio: "inherit" });
-                        }
-                        catch (error) {
-                            console.log(error);
-                            process.exit(1);
-                        }
-                        try {
-                            (0, child_process_1.execSync)("npm run prod", { stdio: "inherit" });
-                        }
-                        catch (error) {
-                            console.log(error);
-                            process.exit(1);
-                        }
-                        return [3 /*break*/, 16];
-                    case 8:
-                        if (!!argv.rollback) return [3 /*break*/, 11];
-                        return [4 /*yield*/, reactUiRollbackCommand_1.default.handle()];
-                    case 9:
-                        _b.sent();
-                        return [4 /*yield*/, vueUiCommand_1.default.handle()];
-                    case 10:
-                        _b.sent();
-                        console.log(chalk_1.default.green("Vue scaffolding installed successfully."));
-                        return [3 /*break*/, 14];
-                    case 11: return [4 /*yield*/, vueUiRollbackCommand_1.default.handle()];
-                    case 12:
-                        _b.sent();
-                        return [4 /*yield*/, bootstrapUiCommand_1.default.handle()];
-                    case 13:
-                        _b.sent();
-                        console.log(chalk_1.default.green("Vue scaffolding rollback successfully."));
-                        _b.label = 14;
-                    case 14:
-                        try {
-                            (0, child_process_1.execSync)("npm install", { stdio: "inherit" });
-                        }
-                        catch (error) {
-                            console.log(error);
-                            process.exit(1);
-                        }
-                        try {
-                            (0, child_process_1.execSync)("npm run prod", { stdio: "inherit" });
-                        }
-                        catch (error) {
-                            console.log(error);
-                            process.exit(1);
-                        }
-                        return [3 /*break*/, 16];
-                    case 15:
-                        console.log(chalk_1.default.red("scaffold not found!"));
-                        return [3 /*break*/, 16];
-                    case 16: return [2 /*return*/];
-                }
+            return __generator(this, function (_a) {
+                new generateUi_1.default().finally(argv);
+                return [2 /*return*/];
             });
         });
     },

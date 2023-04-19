@@ -57,24 +57,23 @@ var ReactUiRollbackCommand = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.js()];
                     case 1:
-                        if (!_a.sent()) return [3 /*break*/, 7];
+                        if (!_a.sent()) return [3 /*break*/, 6];
                         return [4 /*yield*/, this.css()];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, this.nodeModules()];
-                    case 3:
-                        _a.sent();
+                        // await this.nodeModules();
                         return [4 /*yield*/, this.app()];
-                    case 4:
+                    case 3:
+                        // await this.nodeModules();
                         _a.sent();
                         return [4 /*yield*/, this.webpack()];
-                    case 5:
+                    case 4:
                         _a.sent();
                         return [4 /*yield*/, this.pack()];
-                    case 6:
+                    case 5:
                         _a.sent();
-                        _a.label = 7;
-                    case 7: return [2 /*return*/];
+                        _a.label = 6;
+                    case 6: return [2 /*return*/];
                 }
             });
         });
