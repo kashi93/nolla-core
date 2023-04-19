@@ -40,26 +40,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var yargs_1 = __importDefault(require("yargs"));
-var route_service_1 = __importDefault(require("../providers/route.service"));
-var routeRegister_1 = __importDefault(require("../route/routeRegister"));
+var routeListCommand_1 = __importDefault(require("../rainbows/lucy/routeListCommand"));
 exports.default = yargs_1.default.command({
     command: "route:list",
     describe: "List all registered routes",
     builder: {},
     handler: function (argv) {
         return __awaiter(this, void 0, void 0, function () {
-            var routerReg;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        new route_service_1.default().boot();
-                        routerReg = new routeRegister_1.default();
-                        return [4 /*yield*/, routerReg.register()];
-                    case 1:
-                        _a.sent();
-                        console.table(routeList);
-                        return [2 /*return*/];
-                }
+                new routeListCommand_1.default().finally();
+                return [2 /*return*/];
             });
         });
     },

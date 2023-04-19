@@ -39,37 +39,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var yargs_1 = __importDefault(require("yargs"));
-var createMigration_1 = __importDefault(require("../rainbows/lucy/createMigration"));
-exports.default = yargs_1.default.command({
-    command: "create:migration",
-    describe: "Create a new migration files",
-    builder: {
-        name: {
-            alias: "n",
-            required: true,
-            type: "string",
-            describe: "The name of the migration",
-        },
-        create: {
-            alias: "c",
-            required: false,
-            type: "string",
-            describe: "The table to be created",
-        },
-        table: {
-            alias: "t",
-            required: false,
-            type: "string",
-            describe: "The table to migrate",
-        },
-    },
-    handler: function (argv) {
+var route_service_1 = __importDefault(require("../../providers/route.service"));
+var routeRegister_1 = __importDefault(require("../../route/routeRegister"));
+var routeListCommand = /** @class */ (function () {
+    function routeListCommand() {
+    }
+    routeListCommand.prototype.handler = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                new createMigration_1.default().finally(argv);
+                this.finally();
                 return [2 /*return*/];
             });
         });
-    },
-});
+    };
+    routeListCommand.prototype.finally = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var routerReg;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        new route_service_1.default().boot();
+                        routerReg = new routeRegister_1.default();
+                        return [4 /*yield*/, routerReg.register()];
+                    case 1:
+                        _a.sent();
+                        console.table(routeList);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return routeListCommand;
+}());
+exports.default = routeListCommand;

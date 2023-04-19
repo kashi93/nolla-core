@@ -1,4 +1,4 @@
-import { TableConfig } from "../../nolla-core";
+import { MySqlTable, TableConfig } from "../../nolla-core";
 
 export let params: string[] = [];
 export const resetParams = () => {
@@ -31,7 +31,7 @@ const configTranslate = (query: string, config: TableConfig): void => {
   params.push(query);
 }
 
-class Table {
+class Table implements MySqlTable {
   id(column: string = "id") {
     params.push(`${column} BIGINT NOT NULL AUTO_INCREMENT`);
     params.push(`PRIMARY KEY (${column})`);

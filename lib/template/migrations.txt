@@ -1,8 +1,9 @@
+import { MySqlTable } from "nolla-core";
 import Schema from "nolla-core/src/database/mysql/schema";
 
 class Migration {
   async up() {
-    await Schema.{operation}("{table_name}", (table) => {
+    await Schema.{operation}("{table_name}", (table:MySqlTable) => {
       {table_scalfold}
     });
   }

@@ -11,6 +11,31 @@ export default yargs.command({
             message: 'Hello! How can I assist you today?',
             choices: [
                 {
+                    title: 'Create Controller',
+                    description: 'Create a new controller class',
+                    value: "createController"
+                },
+                {
+                    title: 'Create Model',
+                    description: 'Create a new model class',
+                    value: "createModel"
+                },
+                {
+                    title: 'Create Migration',
+                    description: 'Create a new migration files',
+                    value: "createMigration"
+                },
+                {
+                    title: 'Migrate',
+                    description: 'Run the database migrations',
+                    value: "migrate"
+                },
+                {
+                    title: 'Route List',
+                    description: 'List all registered routes',
+                    value: "routeListCommand"
+                },
+                {
                     title: 'Generate UI',
                     description: 'Generate front-end scaffolding for the application preset type (vue, react)',
                     value: 'generateUi'
@@ -19,16 +44,6 @@ export default yargs.command({
                     title: 'Compile Resources',
                     description: 'Compile all resources/**/* to dist/resources/**/*',
                     value: 'compileResources'
-                },
-                {
-                    title: 'Create Controller',
-                    description: 'Create a new controller class',
-                    value: "createController"
-                },
-                {
-                    title: 'Migrate',
-                    description: 'Run the database migrations',
-                    value: "migrate"
                 },
             ],
         });

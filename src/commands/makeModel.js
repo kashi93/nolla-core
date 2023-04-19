@@ -35,20 +35,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __asyncValues = (this && this.__asyncValues) || function (o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var yargs_1 = __importDefault(require("yargs"));
-var fs_1 = __importDefault(require("fs"));
-var chalk_1 = __importDefault(require("chalk"));
+var createModel_1 = __importDefault(require("../rainbows/lucy/createModel"));
 exports.default = yargs_1.default.command({
     command: "create:model",
     describe: "Create a new model class",
@@ -67,107 +59,10 @@ exports.default = yargs_1.default.command({
         },
     },
     handler: function (argv) {
-        var _a, e_1, _b, _c;
-        var _d, _e;
         return __awaiter(this, void 0, void 0, function () {
-            var path, p, m, models, _f, models_1, models_1_1, model, e_1_1;
-            return __generator(this, function (_g) {
-                switch (_g.label) {
-                    case 0:
-                        path = require("path");
-                        p = "".concat(path.dirname((_d = require.main) === null || _d === void 0 ? void 0 : _d.filename), "/app/models/");
-                        m = null;
-                        if (!Number.isNaN(parseInt(String(argv.class))) ||
-                            !Number.isNaN(parseInt(String(argv.table_name)))) {
-                            console.log(chalk_1.default.red("Invalid name!"));
-                            return [2 /*return*/];
-                        }
-                        if (argv.class == "model" || argv.table_name == "model") {
-                            console.log(chalk_1.default.red("Invalid name!"));
-                            return [2 /*return*/];
-                        }
-                        return [4 /*yield*/, fs_1.default.promises.readdir(p)];
-                    case 1:
-                        models = _g.sent();
-                        _g.label = 2;
-                    case 2:
-                        _g.trys.push([2, 7, 8, 13]);
-                        _f = true, models_1 = __asyncValues(models);
-                        _g.label = 3;
-                    case 3: return [4 /*yield*/, models_1.next()];
-                    case 4:
-                        if (!(models_1_1 = _g.sent(), _a = models_1_1.done, !_a)) return [3 /*break*/, 6];
-                        _c = models_1_1.value;
-                        _f = false;
-                        try {
-                            model = _c;
-                            if ("".concat(String(argv.class).toLowerCase(), ".ts") == model) {
-                                console.log(chalk_1.default.red("Model ".concat(argv.class, " already exist!")));
-                                return [2 /*return*/];
-                            }
-                        }
-                        finally {
-                            _f = true;
-                        }
-                        _g.label = 5;
-                    case 5: return [3 /*break*/, 3];
-                    case 6: return [3 /*break*/, 13];
-                    case 7:
-                        e_1_1 = _g.sent();
-                        e_1 = { error: e_1_1 };
-                        return [3 /*break*/, 13];
-                    case 8:
-                        _g.trys.push([8, , 11, 12]);
-                        if (!(!_f && !_a && (_b = models_1.return))) return [3 /*break*/, 10];
-                        return [4 /*yield*/, _b.call(models_1)];
-                    case 9:
-                        _g.sent();
-                        _g.label = 10;
-                    case 10: return [3 /*break*/, 12];
-                    case 11:
-                        if (e_1) throw e_1.error;
-                        return [7 /*endfinally*/];
-                    case 12: return [7 /*endfinally*/];
-                    case 13:
-                        if (!(argv.class != "" && argv.table_name != "")) return [3 /*break*/, 15];
-                        return [4 /*yield*/, fs_1.default.promises
-                                .readFile("".concat(path.dirname((_e = require.main) === null || _e === void 0 ? void 0 : _e.filename), "/template/model.template.txt"), "utf-8")
-                                .then(function (t) {
-                                return t.replace(/{table_name}/g, "".concat(argv.table_name)).replace(/ModelTemplate/g, "".concat(String(argv.class)
-                                    .replace(/\s(.)/g, function ($1) {
-                                    return $1.toUpperCase();
-                                })
-                                    .replace(/\s/g, "")
-                                    .replace(/^(.)/, function ($1) {
-                                    return $1.toLowerCase();
-                                })));
-                            })];
-                    case 14:
-                        m = _g.sent();
-                        _g.label = 15;
-                    case 15:
-                        if (!(m != null)) return [3 /*break*/, 17];
-                        return [4 /*yield*/, fs_1.default.promises.writeFile("".concat(p).concat(String(argv.class)
-                                .replace(/\s(.)/g, function ($1) {
-                                return $1.toUpperCase();
-                            })
-                                .replace(/\s/g, "")
-                                .replace(/^(.)/, function ($1) {
-                                return $1.toLowerCase();
-                            }), ".ts"), m, "utf-8")];
-                    case 16:
-                        _g.sent();
-                        console.log(chalk_1.default.green("Created Model: ".concat(String(argv.class)
-                            .replace(/\s(.)/g, function ($1) {
-                            return $1.toUpperCase();
-                        })
-                            .replace(/\s/g, "")
-                            .replace(/^(.)/, function ($1) {
-                            return $1.toLowerCase();
-                        }), ".ts")));
-                        _g.label = 17;
-                    case 17: return [2 /*return*/];
-                }
+            return __generator(this, function (_a) {
+                new createModel_1.default().finally(argv);
+                return [2 /*return*/];
             });
         });
     },
