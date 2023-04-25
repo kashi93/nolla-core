@@ -6,7 +6,7 @@
   "types": "lib/nolla-core.d.ts",
   "scripts": {
     "dev": "nodemon",
-    "build": "rm -rf src && tsc && copyfiles -u 1 lib/template/**/*.txt lib/template/**/*.css lib/template/**/*.png src/"
+    "build": "rm -rf src && tsc && copyfiles -u 1 lib/template/**/*.txt lib/template/**/*.css lib/template/**/*.png lib/*.d.ts src/"
   },
   "keywords": [],
   "author": "",

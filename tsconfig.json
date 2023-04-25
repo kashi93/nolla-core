@@ -6,11 +6,11 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "sourceMap": false,
-    "declaration": false,
+    "declaration": true,
     "allowJs": true,
     "noLib": false,
     "resolveJsonModule": true,
     "outDir": "./src",
     "rootDir": "./lib",
-  },
+  }
 }
